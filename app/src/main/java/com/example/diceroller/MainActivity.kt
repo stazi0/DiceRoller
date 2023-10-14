@@ -9,8 +9,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener { rollDice() }
+
+        // кидок кубика при запуску проги до першого натискання на кнопку
+        rollDice()
     }
 
     //обробник кидка кубика
@@ -18,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
         val diceImage: ImageView = findViewById(R.id.imageView)
+        //визначення зображення кубика
         val drawableResource = when (diceRoll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
