@@ -10,11 +10,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val rollButton: Button = findViewById(R.id.button)
-        rollButton.setOnClickListener {
-            rollDice()
-        }
+        rollButton.setOnClickListener { rollDice() }
     }
 
+    //обробник кидка кубика
     private fun rollDice() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
@@ -22,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         resultTextView.text = diceRoll.toString()
     }
 
+    //генератор випадкового числа в діапазоні від 1 до numSides
     class Dice(public final val numSides: Int) {
         fun roll(): Int {
             return (1..numSides).random()
